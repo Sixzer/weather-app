@@ -1,6 +1,7 @@
 import React from "react";
 import { useRef, useState } from "react";
 import useFetch from "../../hooks/useFetch";
+import "./weatherForm.scss";
 
 function WeatherForm() {
     const [input, setInput] = useState("");
@@ -9,7 +10,6 @@ function WeatherForm() {
     useFetch(input);
 
     const onSubmit = (e) => {
-        // console.log("render", i++);
         e.preventDefault();
         setInput(inputRef.current.value);
 
@@ -17,20 +17,25 @@ function WeatherForm() {
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            {/* <label for="city-input" className="sr-only">
+        <section className="weather-section">
+            <form onSubmit={onSubmit} className="weather-section__form">
+                {/* <label for="city-input" className="sr-only">
                 Enter city name
             </label> */}
-            <input
-                type="text"
-                id="city-input"
-                name="city"
-                ref={inputRef}
-                placeholder="Enter city name"
-                required
-            />
-            <button type="submit">Search</button>
-        </form>
+                <input
+                    className="weather-section__input"
+                    type="text"
+                    id="city-input"
+                    name="city"
+                    ref={inputRef}
+                    placeholder="Enter city name"
+                    required
+                />
+                <button type="submit" className="weather-section__button">
+                    Search
+                </button>
+            </form>
+        </section>
     );
 }
 
