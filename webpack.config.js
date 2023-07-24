@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { triggerAsyncId } = require("async_hooks");
+// const { triggerAsyncId } = require("async_hooks");
 
 const mode = process.env.NODE_ENV || "development";
 const devMode = mode === "development";
@@ -16,6 +16,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            title: "Weather App",
+            favicon: "./src/weather-app.png",
             template: "./src/index.html",
         }),
         new MiniCssExtractPlugin({
